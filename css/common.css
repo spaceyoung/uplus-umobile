@@ -1,0 +1,356 @@
+@charset "UTF-8";
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css'); /* font-family: 'Pretendard'; */
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css'); /* font-family: 'GmarketSans'; */
+
+/******************************
+            COMMON
+******************************/
+:root{
+    word-break: keep-all;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img, input, select, textarea{display: block;}
+a{text-decoration: none; color: inherit;}
+body{
+    margin-top: 81px;
+    font: 400 16px / 1.2 Pretendard, "돋움", dotum, sans-serif;
+    letter-spacing: -0.5px; color: #555;
+}
+.hide{
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0;
+    border: 0;
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: polygon(0 0, 0 0, 0 0);
+}
+.clearfix::after{content: ""; display: block; clear: both;}
+
+.inner{width: 1280px; margin: 0 auto;}
+.skip-nav a:focus{top: 0;}
+.skip-nav a{
+    width: 100%; height: 30px;
+    line-height: 30px; text-align: center; color: #fff;
+    background-color: #555;
+    position: absolute; top: -100px;
+}
+button{
+    all: unset;
+    cursor: pointer;
+}
+
+
+/******************************
+            HEADER
+******************************/
+/* -------------------- HEADER COMMON -------------------- */
+.header{
+    width: 100%; min-width: 1280px; height: 81px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    position: fixed; left: 0; top: 0; z-index: 8000;
+    box-sizing: border-box;
+}
+.logo{
+    float: left;
+    margin: 12px 135px 0 0;
+}
+
+
+/* -------------------- GNB -------------------- */
+.gnb{float: left;}
+.gnb .depth1{float: left;}
+.gnb .depth1 > a{
+    display: block;
+    height: 80px;
+    padding: 0 20px;
+    font-weight: 600; font-size: 18px; line-height: 80px; color: #111;
+    transition: all 0.3s;
+}
+.gnb .depth2{
+    display: none;
+    width: 100%; height: 90px;
+    font-size: 0; text-align: center;
+    position: absolute; left: 0; top: 80px; z-index: 100;
+}
+.gnb .depth2 li{display: inline-block;}
+.gnb .depth2 li a{
+    height: 30px;
+    display: block;
+    padding: 30px 35px;
+    font-weight: 600; font-size: 16px; line-height: 30px; color: #333;
+    transition: all 0.3s;
+}
+.gnb-bg{
+    display: none;
+    width: 100%; height: 90px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    position: absolute; left: 0; top: 81px; z-index: 50;
+}
+.gnb:hover .gnb-bg{display: block;}
+.gnb .depth1:hover .depth2{display: block;}
+.gnb .depth1:hover > a{color: #7c40ce;}
+.gnb .depth2 li a:hover{color: #7c40ce;}
+
+
+/* -------------------- UTIL -------------------- */
+.util{
+    float: right;
+}
+.util > div > button{
+    height: 80px;
+    margin-right: 30px;
+    font-size: 30px; color: #111;
+    cursor: pointer;
+}
+
+/* SEARCH */
+.util .search{float: left;}
+.util .search .search-container{
+    display: none;
+    width: 100%; height: 512px;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+    position: absolute; left: 0; top: 80px; z-index: 100;
+}
+.util .search .inner{position: relative;}
+.util .search .search-inner{
+    width: 840px;
+    margin: 0 auto;
+    padding-top: 130px;
+}
+.util .search .search-bar{margin-bottom: 35px;}
+.util .search .search-bar fieldset{
+    width: 840px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #000;
+}
+.util .search .search-bar input{
+    float: left;
+    width: 790px; height: 32px;
+    border: none;
+    background-color: transparent;
+}
+.util .search .search-bar input::placeholder{
+    font: 400 16px / 1.2 Pretendard, "돋움", dotum, sans-serif;
+    letter-spacing: -0.5px; color: #bbb;
+}
+.util .search .search-bar button{
+    float: right;
+    font-size: 28px; color: #111;
+}
+.util .search .search-keyword > li{
+    float: left;
+    width: 420px;
+}
+.util .search .search-keyword .search-keyword-tit{
+    display: block;
+    margin-bottom: 16px;
+    font-weight: 600; line-height: 28px; color: #333;
+}
+.util .search .search-keyword .search-keyword-rank li{
+    height: 39px;
+    line-height: 39px;
+}
+.util .search .search-keyword .search-keyword-rank li span{margin-right: 15px;}
+.util .search .search-keyword .search-keyword-rank li:nth-child(-n+3) span{color: #662d91}
+.util .search .search-keyword .search-keyword-rank li:nth-child(n+4):nth-child(-n+5) span{color: #111}
+.util .search .search-close-btn{
+    font-size: 40px; color: #111;
+    position: absolute; right: 0; top: 30px;
+}
+.util .search:hover .search-container{display: block;}
+
+/* LOGIN */
+.util .login{
+    float: left;
+    position: relative;
+}
+.util .login .login-container{
+    display: none;
+    width: 320px; height: 247px;
+    border: 1px solid #ddd; border-radius: 10px;
+    background-color: #fff;
+    position: absolute; right: 15px; top: 70px; z-index: 200;
+}
+.util .login .login-form-member{
+    height: 107px;
+    padding: 30px 30px;
+    border-bottom: 1px solid #ddd;
+}
+.util .login .login-form-member button{
+    width: 260px; height: 58px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    font: 600 16px/ 1.2 Pretendard, "돋움", dotum, sans-serif;
+    text-align: center; color: #fff;
+    background-color: #662d91;
+}
+.util .login .login-form-member ul li{
+    float: left;
+    width: 130px; height: 19px;
+    line-height: 19px; text-align: center; color: #777;
+}
+.util .login .login-form-member ul li:last-child{
+    width: 129px;
+    border-left: 1px solid #ddd;
+}
+.util .login .login-form-inquiry{
+    height: 49px;
+    padding: 30px 30px;
+}
+.util .login .login-form-inquiry a{font-weight: 600;}
+.util .login:hover .login-container{display: block;}
+
+/* ALLMENU */
+.util .allmenu{float: left;}
+.util .allmenu .allmenu-btn{margin-right: 0;}
+.util .allmenu .allmenu-container{
+    display: none;
+    width: 100%; height: 100%;
+    padding-top: 80px;
+    background-color: #fff;
+    position: fixed; left: 0; top: 0; z-index: 10000;
+}
+.util .allmenu .allmenu-depth1{
+    padding: 25px 0;
+    border-bottom: 1px solid #ddd;
+}
+.util .allmenu .allmenu-depth1:last-child{border: none;}
+.util .allmenu .allmenu-depth1::after{content: ""; display: block; clear: both;}
+.util .allmenu .allmenu-depth1 p{
+    float: left;
+    width: 256px;
+}
+.util .allmenu .allmenu-depth1 p > a{
+    font-weight: 600; font-size: 24px; line-height: 54px; color: #111;
+    transition: all 0.3s;
+}
+.util .allmenu .allmenu-depth2{float: left; width: 1024px;}
+.util .allmenu .allmenu-depth2 li{
+    float: left;
+    width: 256px; height: 54px;
+}
+.util .allmenu .allmenu-depth2 li a{
+    font-weight: 500; font-size: 20px; line-height: 54px; color: #333;
+    transition: all 0.3s;
+}
+.util .allmenu .allmenu-close-btn{
+    font-size: 40px; color: #111;
+    position: absolute; right: 90px; top: 70px;
+}
+.util .allmenu:hover .allmenu-container{display: block;}
+.util .allmenu .allmenu-depth1 p > a:hover{color: #7c40ce}
+.util .allmenu .allmenu-depth2 li a:hover{color: #7c40ce}
+
+
+/******************************
+              MAIN
+******************************/
+/* -------------------- QUICK -------------------- */
+.quick .quick-chatbot{
+    width: 54px; height: 54px;
+    border-radius: 27px;
+    background-color: #662d91;
+    position: fixed; right: 60px; bottom: 125px; z-index: 9000;
+    overflow: hidden;
+    cursor: pointer;
+}
+.quick .quick-chatbot img{float: right;}
+.quick .quick-chatbot p{
+    display: none;
+    float: left;
+    margin: 11px 0 0 20px;
+    font-weight: 500; font-size: 14px; line-height: 16px; color: #fff;
+    transition: all 0.3s;
+}
+.quick .quick-chatbot p span{display: block;}
+.quick .quick-top{
+    width: 54px; height: 54px;
+    border-radius: 100%;
+    background-color: #eff1f5;
+    text-align: center;
+    position: fixed; right: 60px; bottom: 60px; z-index: 9000;
+    cursor: pointer;
+}
+.quick .quick-top::before{content: "";
+    display: block;
+    width: 1px; height: 1px;
+    margin: 0 auto;
+    border: 3px solid transparent; border-bottom-color: #555;
+}
+.quick .quick-top em{font-weight: 600; font-size: 12px; color: #555;}
+.quick .quick-chatbot:hover{width: 200px; transition: all 0.3s;}
+.quick .quick-chatbot:hover p{display: block;}
+
+
+/******************************
+            FOOTER
+******************************/
+.footer{
+    min-width: 1280px; height: 440px;
+    background-color: #222;
+}
+.f-top{
+    width: 100%; height: 85px;
+    border-bottom: 1px solid #444;
+}
+.f-top .f-menu li{
+    float: left;
+    padding: 30px 11px;
+}
+.f-top .f-menu li a{line-height: 25px; color: #ddd;}
+.f-bottom{color: #777;}
+.f-bottom .f-container{
+    height: 200px;
+    position: relative;
+}
+.f-bottom .f-tit{
+    display: block;
+    margin-bottom: 16px;
+    font-weight: 600; line-height: 28px; color: #fff;
+}
+.f-bottom .f-sns{
+    float: right;
+    margin-top: 35px;
+}
+.f-bottom .f-sns li{
+    float: left;
+    width: 34px; height: 34px;
+    margin-right: 10px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #fff;
+}
+.f-bottom .f-sns li:last-child{margin-right: 0;}
+.f-bottom .f-sns li a{
+    display: block;
+    width: 100%; height: 34px;
+    padding: 5px;
+    line-height: 32px;
+}
+.f-bottom .f-sns li a img{vertical-align: middle;}
+.f-bottom .f-award{position: absolute; left: 0; bottom: -55px;}
+.f-bottom .f-award p{float: left;}
+.f-bottom .f-award p:last-child{margin-top: 6px;}
+.f-bottom .f-award p img{margin-right: 10px;}
+.f-bottom .f-award p span{display: block;}
+.f-bottom .f-qna{position: absolute; left: 450px; top: 35px;}
+.f-bottom .f-qna em{
+    display: block;
+    margin-bottom: 10px;
+}
+.f-bottom .f-center{position: absolute; left: 750px; top: 35px;}
+.f-bottom .f-center em{
+    display: block;
+    margin-bottom: 10px;
+}
+.f-bottom .f-info{position: absolute; left: 0; top: 35px;}
+.f-bottom .f-info ul li:nth-child(2){
+    float: left;
+    margin-right: 25px;
+}
+.f-bottom .f-info ul li:nth-child(3){float: left;}
